@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.Date;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
@@ -11,7 +12,6 @@ import org.junit.Test;
 
 import edu.scnu.bean.User;
 import edu.scnu.dao.UserDao;
-import edu.scnu.dao.UserDaoImpl;
 
 public class MybatisTest {
 	
@@ -23,7 +23,8 @@ public class MybatisTest {
 		String resource = "sqlMapConfig.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		userDao = new UserDaoImpl(sqlSessionFactory);
+		SqlSession session = sqlSessionFactory.openSession();
+		userDao = session.getMapper(UserDao.class);
 	}
 	
 	@Test
@@ -33,7 +34,7 @@ public class MybatisTest {
 	
 	@Test
 	public void testGetByUsername() {
-		System.out.println(userDao.getByUsername("çŽ?"));
+		System.out.println(userDao.getByUsername("ï¿½?"));
 	}
 	
 	@Test
