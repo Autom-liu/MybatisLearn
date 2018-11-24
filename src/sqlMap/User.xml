@@ -8,6 +8,15 @@
 		select * from mb_user where username like "%"#{username}"%"
 	</select>
 	<insert id="save" parameterType="edu.scnu.bean.User">
+		<!-- 生成主键的顺序Mysql是之后，oracle是之前 -->
+		<selectKey keyProperty="id" resultType="Integer" order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey>
+		<!-- 
+			<selectKey keyColumn="id" keyProperty="id" order="BEFORE" resultType="string">
+				select LAST_INSERT_ID()
+			</selectKey>
+		 -->
 		insert into mb_user (username,birthday,sex,address) values (#{username}, #{birthday}, #{sex}, #{address})
 	</insert>
 </mapper>
