@@ -3,17 +3,27 @@
 	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
+	<!-- 是用resource属性加载外部配置文件 -->
+	<properties resource="db.properties">
+		<!-- 在properties内部用property定义属性 -->
+		<!-- 如果外部配置文件有该属性，则内部定义属性被外部属性覆盖 -->
+		<property name="jdbc.password" value="root" />
+	</properties>
+
+
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC"/>
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/test?characterEncoding=utf-8"/>
-				<property name="username" value="root"/>
-				<property name="password" value="076339"/>
+				<property name="driver" value="${jdbc.driver}"/>
+				<property name="url" value="${jdbc.url}"/>
+				<property name="username" value="${jdbc.username}"/>
+				<property name="password" value="${jdbc.password}"/>
 			</dataSource>
 		</environment>
 	</environments>
+	
 	<mappers>
 		<mapper resource="sqlMap/User.xml"/>
 	</mappers>

@@ -34,7 +34,7 @@ public class MybatisTest {
 	
 	@Test
 	public void testGetByUsername() {
-		System.out.println(userDao.getByUsername("�?"));
+		System.out.println(userDao.getByUsername("王"));
 	}
 	
 	@Test
