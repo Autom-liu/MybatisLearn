@@ -11,6 +11,12 @@
 		<property name="jdbc.password" value="root" />
 	</properties>
 
+	<typeAliases>
+		<!-- 单个别名定义 -->
+		<!-- <typeAlias alias="user" type="edu.scnu.bean.User" /> -->
+		<!-- 批量别名定义，扫描整个包下的类，别名为类名（大小写不敏感） -->
+		<package name="edu.scnu.bean" />
+	</typeAliases>
 
 	<environments default="development">
 		<environment id="development">

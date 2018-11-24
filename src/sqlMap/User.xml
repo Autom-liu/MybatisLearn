@@ -6,13 +6,13 @@
 	<!-- 2. id必须和Mapper接口方法名一致 -->
 	<!-- 3. parameterType必须和接口方法参数类型一致 -->
 	<!-- 4. resultType必须和接口方法返回值类型一致 -->
-	<select id="find" resultType="edu.scnu.bean.User" parameterType="Integer">
+	<select id="find" resultType="User" parameterType="Integer">
 		select * from mb_user where id = #{id}
 	</select>
 	<select id="getByUsername" resultType="edu.scnu.bean.User" parameterType="String">
 		select * from mb_user where username like "%"#{username}"%"
 	</select>
-	<insert id="save" parameterType="edu.scnu.bean.User">
+	<insert id="save" parameterType="User">
 		<!-- 生成主键的顺序Mysql是之后，oracle是之前 -->
 		<selectKey keyProperty="id" resultType="Integer" order="AFTER">
 			select LAST_INSERT_ID()
