@@ -32,9 +32,8 @@
 	</bean>
 	
 
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="edu.scnu.dao.UserDao" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="edu.scnu.dao" />
 	</bean>
 	
 </beans>
