@@ -6,4 +6,5 @@ import edu.scnu.bean.Orders;
 
 public interface OrdersDao {
 	List<Orders> getAll();
+	List<Orders> getOrdersWithUser();
 }

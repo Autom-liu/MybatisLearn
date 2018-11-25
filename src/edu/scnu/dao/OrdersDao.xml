@@ -8,9 +8,36 @@
 		<!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
 		<id property="id" column="id"></id>
 		<result property="userId" column="user_id"/>
+		<!-- 关联，属性全写上 -->
+		<result property="number" column="number" />
+		<result property="createtime" column="createtime" />
+		<result property="note" column="note" />
+		
+		
+		<association property="user" javaType="User">
+			<!-- id:声明主键，表示user_id是关联查询对象的唯一标识-->
+			<id property="id" column="user_id" />
+			<result property="username" column="username" />
+			<result property="address" column="address" />
+		</association>
 	</resultMap>
 	<select id="getAll" resultMap="orderResultMap">
 		<include refid="selectSql" />
 	</select>
+	
+	<select id="getOrdersWithUser" resultMap="orderResultMap">
+		SELECT
+			o.id,
+			o.user_id,
+			o.number,
+			o.createtime,
+			o.note,
+			u.username,
+			u.address
+		FROM
+			`mb_orders` o
+		LEFT JOIN `mb_user` u ON o.user_id = u.id
+	</select>
+	
 
 </mapper>

@@ -29,4 +29,9 @@ public class OrdersTest {
 	public void testGet() {
 		System.out.println(orderDao.getAll());
 	}
+	
+	@Test
+	public void testGetWithUser() {
+		System.out.println(orderDao.getOrdersWithUser());
+	}
 }
