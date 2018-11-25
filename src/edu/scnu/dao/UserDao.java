@@ -17,4 +17,5 @@ public interface UserDao {
 	List<User> getByIds(Integer[] ids);
 	List<User> getByIds(List<Integer> ids);
 	List<User> getByIds(UserWrapper uwrap);
+	List<User> getWithOrders();
 }

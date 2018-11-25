@@ -35,7 +35,7 @@ public class UserTest {
 	
 	@Test
 	public void testGetByUsername() {
-		System.out.println(userDao.getByUsername("çŽ?"));
+		System.out.println(userDao.getByUsername("ï¿½?"));
 	}
 	
 	@Test
@@ -60,8 +60,17 @@ public class UserTest {
 	
 	@Test
 	public void testUpdate() {
-		User u = new User("åˆ˜å¤‡", "1", new Date(), "èœ?å›?");
+		User u = new User("åˆ˜å¤‡", "1", new Date(), "ï¿½?ï¿½?");
 		u.setId(1);
 		userDao.update(new UserWrapper(u));
+	}
+	
+	
+	@Test
+	public void testWithOrders() {
+		List<User> withOrders = userDao.getWithOrders();
+		for(User u : withOrders) {
+			System.out.println(u);
+		}
 	}
 }

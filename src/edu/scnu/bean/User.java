@@ -2,6 +2,7 @@ package edu.scnu.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class User implements Serializable {
 	/**
@@ -13,8 +14,9 @@ public class User implements Serializable {
 	private String sex;// 性别
 	private Date birthday;// 生日
 	private String address;// 地址
+	private List<Orders> orders;
 
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,9 +47,18 @@ public class User implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	
+	
+	public List<Orders> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + "]";
+		return "User [id=" + id + ", username=" + username + " orderLength: " + orders.size() + "]";
 	}
 	public User(String username, String sex, Date birthday, String address) {
 		this.username = username;

@@ -60,5 +60,27 @@
 			</foreach>
 		</where>
 	</select>
-
+	
+	<resultMap type="User" id="UserOrdersResultMap">
+		<id property="id" column="id" />
+		<result property="username" column="username"/>
+		<result property="address" column="address"/>
+		<collection property="orders" javaType="List" ofType="Orders">
+			<result property="id" column="oid"/>
+			<result property="createtime" column="createtime"/>
+			<result property="number" column="number"/>
+		</collection>
+	</resultMap>
+	<select id="getWithOrders" resultMap="UserOrdersResultMap">
+		SELECT
+			u.id,
+			u.username,
+			u.address,
+			o.id oid,
+			o.number,
+			o.createtime
+		FROM
+			`mb_user` u
+		LEFT JOIN `mb_orders` o ON u.id = o.user_id
+	</select>
 </mapper>
