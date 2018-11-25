@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.scnu.dao.OrdersUserDao">
+	<select id="queryAll" resultType="OrdersUser">
+		SELECT
+			o.id,
+			o.user_id
+			userId,
+			o.number,
+			o.createtime,
+			o.note,
+			u.username,
+			u.address
+		FROM
+			`mb_orders` o
+		LEFT JOIN `mb_user` u ON o.user_id = u.id
+
+	</select>
+
+</mapper>
