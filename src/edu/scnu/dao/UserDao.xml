@@ -52,10 +52,10 @@
 		</where>
 	</select>
 	
-	<select id="getByIds" parameterType="UserWrapper" resultType="User">
+	<select id="getByIds" parameterType="Integer" resultType="User">
 		<include refid="selectSql" />
 		<where>
-			<foreach collection="ids" item ="id" separator="," open="id in (" close=")">
+			<foreach collection="array" item ="id" separator="," open="id in (" close=")">
 				#{id}
 			</foreach>
 		</where>
