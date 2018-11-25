@@ -31,6 +31,6 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="sqlMap/User.xml"/>
+		<mapper class="edu.scnu.dao.UserDao"/>
 	</mappers>
 </configuration>
