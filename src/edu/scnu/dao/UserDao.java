@@ -14,4 +14,7 @@ public interface UserDao {
 	Integer getCount();
 	List<User> getByUsername(String username);
 	List<User> getByCond(User user);
+	List<User> getByIds(Integer[] ids);
+	List<User> getByIds(List<Integer> ids);
+	List<User> getByIds(UserWrapper uwrap);
 }

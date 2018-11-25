@@ -51,4 +51,14 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getByIds" parameterType="UserWrapper" resultType="User">
+		<include refid="selectSql" />
+		<where>
+			<foreach collection="ids" item ="id" separator="," open="id in (" close=")">
+				#{id}
+			</foreach>
+		</where>
+	</select>
+
 </mapper>
