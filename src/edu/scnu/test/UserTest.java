@@ -14,7 +14,7 @@ import edu.scnu.bean.User;
 import edu.scnu.bean.UserWrapper;
 import edu.scnu.dao.UserDao;
 
-public class MybatisTest {
+public class UserTest {
 	
 	private SqlSessionFactory sqlSessionFactory;
 	private UserDao userDao;
@@ -35,7 +35,7 @@ public class MybatisTest {
 	
 	@Test
 	public void testGetByUsername() {
-		System.out.println(userDao.getByUsername("王"));
+		System.out.println(userDao.getByUsername("�?"));
 	}
 	
 	@Test
@@ -60,7 +60,7 @@ public class MybatisTest {
 	
 	@Test
 	public void testUpdate() {
-		User u = new User("刘备", "1", new Date(), "蜀国");
+		User u = new User("刘备", "1", new Date(), "�?�?");
 		u.setId(1);
 		userDao.update(new UserWrapper(u));
 	}

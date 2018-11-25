@@ -59,6 +59,9 @@ public class Orders  implements Serializable{
         this.note = note == null ? null : note.trim();
     }
 
-    
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", userId=" + userId + "]";
+	}
     
 }

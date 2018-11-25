@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.scnu.dao.OrdersDao">
+	<sql id="selectSql">
+		select * from mb_orders
+	</sql>
+	<resultMap type="Orders" id="orderResultMap">
+		<!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+		<id property="id" column="id"></id>
+		<result property="userId" column="user_id"/>
+	</resultMap>
+	<select id="getAll" resultMap="orderResultMap">
+		<include refid="selectSql" />
+	</select>
+
+</mapper>
