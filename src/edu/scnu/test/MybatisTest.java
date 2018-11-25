@@ -24,7 +24,7 @@ public class MybatisTest {
 		String resource = "sqlMapConfig.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-		SqlSession session = sqlSessionFactory.openSession();
+		SqlSession session = sqlSessionFactory.openSession(true);
 		userDao = session.getMapper(UserDao.class);
 	}
 	
@@ -53,7 +53,7 @@ public class MybatisTest {
 	
 	@Test
 	public void testUpdate() {
-		User u = new User("未知用户2", "1", new Date(), "中国");
+		User u = new User("刘备", "1", new Date(), "蜀国");
 		u.setId(1);
 		userDao.update(new UserWrapper(u));
 	}
