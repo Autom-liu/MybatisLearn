@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 使用动态代理开发DAO，1. namespace必须和Mapper接口类路径一致 -->
-<mapper namespace="edu.scnu.dao.UserDao">
+<mapper namespace="test">
 
 
 	<sql id="selectSql">

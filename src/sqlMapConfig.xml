@@ -8,6 +8,6 @@
 	</typeAliases>
 	
 	<mappers>
-		<package name="edu.scnu.dao"/>
+		<mapper resource="edu/scnu/dao/UserDao.xml"/>
 	</mappers>
 </configuration>
