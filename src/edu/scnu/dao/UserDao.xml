@@ -2,15 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 使用动态代理开发DAO，1. namespace必须和Mapper接口类路径一致 -->
 <mapper namespace="edu.scnu.dao.UserDao">
+
+
+	<sql id="selectSql">
+		select * from mb_user
+	</sql>
+
 	<!-- 根据用户id查询用户 -->
 	<!-- 2. id必须和Mapper接口方法名一致 -->
 	<!-- 3. parameterType必须和接口方法参数类型一致 -->
 	<!-- 4. resultType必须和接口方法返回值类型一致 -->
 	<select id="find" resultType="User" parameterType="Integer">
-		select * from mb_user where id = #{id}
+		<include refid="selectSql" /> where id = #{id}
 	</select>
 	<select id="getByUsername" resultType="edu.scnu.bean.User" parameterType="String">
-		select * from mb_user where username like "%"#{username}"%"
+		<include refid="selectSql" /> where username like "%"#{username}"%"
 	</select>
 	<insert id="save" parameterType="User">
 		<!-- 生成主键的顺序Mysql是之后，oracle是之前 -->
@@ -26,9 +32,23 @@
 		delete from mb_user where id=#{id}
 	</delete>
 	<select id="getAll" resultType="User">
-		select * from mb_user
+		<include refid="selectSql" />
 	</select>
 	<select id="getCount" resultType="int">
 		select count(*) from mb_user
+	</select>
+	<select id="getByCond" parameterType="User" resultType="User">
+		<include refid="selectSql" />
+		<where>
+			<if test="sex != null and sex != ''">
+				and sex = #{sex}
+			</if>
+			<if test="username != null and username != ''">
+				and username = #{username}
+			</if>
+			<if test="address != null and address != ''">
+				and address = #{address}
+			</if>
+		</where>
 	</select>
 </mapper>

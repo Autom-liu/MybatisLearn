@@ -42,6 +42,7 @@ public class MybatisTest {
 	public void testSelect() {
 		System.out.println(userDao.getAll());
 		System.out.println(userDao.getCount());
+		System.out.println(userDao.getByCond(new User("王五", "1", null, "")));
 	}
 	
 	@Test
