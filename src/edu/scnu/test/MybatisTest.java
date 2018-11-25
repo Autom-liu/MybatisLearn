@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.scnu.bean.User;
+import edu.scnu.bean.UserWrapper;
 import edu.scnu.dao.UserDao;
 
 public class MybatisTest {
@@ -38,7 +39,22 @@ public class MybatisTest {
 	}
 	
 	@Test
+	public void testSelect() {
+		System.out.println(userDao.getAll());
+		System.out.println(userDao.getCount());
+	}
+	
+	@Test
 	public void testSave() {
-		userDao.save(new User("未知用户", "2", new Date(), "中国"));
+		User u = new User("未知用户", "2", new Date(), "中国");
+		userDao.save(u);
+		System.out.println(u.getId());
+	}
+	
+	@Test
+	public void testUpdate() {
+		User u = new User("未知用户2", "1", new Date(), "中国");
+		u.setId(1);
+		userDao.update(new UserWrapper(u));
 	}
 }

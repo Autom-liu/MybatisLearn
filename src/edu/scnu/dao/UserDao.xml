@@ -19,4 +19,16 @@
 		</selectKey>
 		insert into mb_user (username,birthday,sex,address) values (#{username}, #{birthday}, #{sex}, #{address})
 	</insert>
+	<update id="update" parameterType="UserWrapper">
+		update mb_user set username=#{user.username}, birthday=#{user.birthday}, sex=#{user.sex}, address=#{user.address} where id=#{user.id}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		delete from mb_user where id=#{id}
+	</delete>
+	<select id="getAll" resultType="User">
+		select * from mb_user
+	</select>
+	<select id="getCount" resultType="int">
+		select count(*) from mb_user
+	</select>
 </mapper>
