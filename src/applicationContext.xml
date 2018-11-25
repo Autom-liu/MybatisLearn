@@ -31,10 +31,10 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	
-	<!-- 原始Dao开发，创建UserDao并注入sessionFactory -->
-	<bean id="userDao" class="edu.scnu.dao.UserDaoImpl">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="edu.scnu.dao.UserDao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
 </beans>

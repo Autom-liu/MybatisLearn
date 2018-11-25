@@ -18,7 +18,8 @@ public class SpringUserTest {
 	
 	@Test
 	public void testFind() {
-		UserDao userDao = (UserDao) context.getBean("userDao");
+//		UserDao userDao = (UserDao) context.getBean("userMapper");
+		UserDao userDao = (UserDao) context.getBean(UserDao.class);
 		User user = userDao.find(1);
 		System.out.println(user);
 	}
