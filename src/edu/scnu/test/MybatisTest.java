@@ -43,12 +43,11 @@ public class MybatisTest {
 //		System.out.println(userDao.getAll());
 //		System.out.println(userDao.getCount());
 //		System.out.println(userDao.getByCond(new User("王五", "1", null, "")));
-		System.out.println(userDao.getByIds(new Integer[] {16,22,24}));
-//		List<Integer> ids = new ArrayList<Integer>();
-//		ids.add(16);
-//		ids.add(22);
-//		ids.add(24);
-//		System.out.println(userDao.getByIds(ids));
+		List<Integer> ids = new ArrayList<Integer>();
+		ids.add(16);
+		ids.add(22);
+		ids.add(24);
+		System.out.println(userDao.getByIds(ids));
 		
 	}
 	
