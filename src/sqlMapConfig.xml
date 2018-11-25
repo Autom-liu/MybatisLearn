@@ -31,6 +31,6 @@
 	</environments>
 	
 	<mappers>
-		<mapper class="edu.scnu.dao.UserDao"/>
+		<package name="edu.scnu.dao"/>
 	</mappers>
 </configuration>
